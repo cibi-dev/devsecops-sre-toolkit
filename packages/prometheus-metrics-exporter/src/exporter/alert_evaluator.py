@@ -253,8 +253,20 @@ class AlertEvaluator:
         if isinstance(config_input, dict):
             raw_dict = config_input
         elif isinstance(config_input, (str, Path)):
-            path = Path(config_input)
-            if path.exists() and path.is_file():
+            input_str = str(config_input)
+            if len(input_str) > MAX_CONFIG_FILE_SIZE_BYTES:
+                raise ValueError("Alert configuration string exceeds 1 MB limit.")
+            
+            is_file = False
+            if "\n" not in input_str:
+                try:
+                    path = Path(config_input)
+                    if path.exists() and path.is_file():
+                        is_file = True
+                except (OSError, ValueError):
+                    is_file = False
+
+            if is_file:
                 # Guardrail: Check file size to avoid DoS (CWE-400)
                 file_size = path.stat().st_size
                 if file_size > MAX_CONFIG_FILE_SIZE_BYTES:
@@ -267,9 +279,7 @@ class AlertEvaluator:
                 raw_dict = loaded if isinstance(loaded, dict) else {}
             else:
                 # Treat as raw YAML string
-                if len(str(config_input)) > MAX_CONFIG_FILE_SIZE_BYTES:
-                    raise ValueError("Alert configuration string exceeds 1 MB limit.")
-                loaded = yaml.safe_load(str(config_input))
+                loaded = yaml.safe_load(input_str)
                 raw_dict = loaded if isinstance(loaded, dict) else {}
         else:
             raise TypeError(f"Unsupported config type: {type(config_input)}")
