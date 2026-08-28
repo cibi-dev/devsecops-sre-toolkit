@@ -48,7 +48,16 @@ jobs:
 
       - name: 🧪 4. Unit & Integration Test Suite (Coverage >= 90%)
         run: |
-          pytest tests -v --cov --cov-fail-under=90
+          # Cada subpaquete lleva su propia suite en packages/*/tests con
+          # basenames repetidos y conftest.py dedicados: se ejecutan en
+          # invocaciones separadas (importlib) acumulando cobertura.
+          coverage erase
+          pytest tests -v --cov --cov-append
+          for d in packages/*/tests; do
+            pytest -c pyproject.toml "$d" -v -p no:cacheprovider \
+              --import-mode=importlib --cov --cov-append
+          done
+          coverage report --fail-under=90
 
       - name: 📦 5. Software Bill of Materials (CycloneDX SBOM)
         run: |
