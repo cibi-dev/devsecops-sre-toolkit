@@ -21,7 +21,6 @@ htmlcov/
 *.env
 .env*
 !.env.example
-sbom.json
 
 # Editors
 .vscode/
