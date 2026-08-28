@@ -65,9 +65,14 @@ def test_cli_all_17_subcommands_dispatch() -> None:
         "ci-runner", "postmortem"
     ]
     for cmd in subcommands:
-        with pytest.raises(SystemExit) as excinfo:
-            cli.main([cmd, "--help"])
-        assert excinfo.value.code == 0
+        # La mayoría de subcomandos delega en CLIs de paquetes que lanzan
+        # SystemExit(0) con --help; otros (p. ej. probe) capturan el exit y
+        # devuelven el código. Ambos contratos son válidos.
+        try:
+            code: int | None = cli.main([cmd, "--help"])
+        except SystemExit as excinfo:
+            code = excinfo.code
+        assert code == 0
 
 
 def test_cli_pipeline_demo(capsys: pytest.CaptureFixture[str]) -> None:
