@@ -47,18 +47,17 @@ class FileInspector:
         p = Path(target_path)
         path_str = str(p)
 
-        if not p.exists() and not p.is_symlink():
-            return FileLiveState(
-                path=path_str,
-                exists=False,
-                mode=None,
-                owner=None,
-                group=None,
-                size=None,
-                sha256=None,
-            )
-
         try:
+            if not p.exists() and not p.is_symlink():
+                return FileLiveState(
+                    path=path_str,
+                    exists=False,
+                    mode=None,
+                    owner=None,
+                    group=None,
+                    size=None,
+                    sha256=None,
+                )
             st = p.stat()
         except (OSError, PermissionError) as exc:
             return FileLiveState(
