@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+.env
+.env.*
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Secrets & Keys (CWE-798 compliance)
+*.key
+*.pem
+*.crt
+*.pfx
+*.p12
+*.secret
+*id_rsa*
+*id_ed25519*
+
+# Databases & Caches
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo

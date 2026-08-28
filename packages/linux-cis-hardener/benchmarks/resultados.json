@@ -1,0 +1,19 @@
+{
+  "benchmark_name": "linux-cis-hardener-audit-latency",
+  "iterations": 50,
+  "total_rules_evaluated_per_run": 22,
+  "total_rule_evaluations": 1100,
+  "total_execution_time_seconds": 0.1392,
+  "mean_audit_latency_ms": 2.735,
+  "std_dev_ms": 0.901,
+  "p50_latency_ms": 2.431,
+  "p95_latency_ms": 4.741,
+  "p99_latency_ms": 5.878,
+  "min_latency_ms": 1.76,
+  "max_latency_ms": 5.878,
+  "avg_latency_per_rule_ms": 0.1243,
+  "throughput_rules_per_second": 7901.59,
+  "initial_rss_memory_mb": 798.43,
+  "peak_rss_memory_mb": 798.43,
+  "status": "PASSED"
+}

@@ -1,0 +1,60 @@
+{
+  "timestamp": "2026-08-27T19:42:25Z",
+  "python_version": "3.14.7",
+  "hardware_overhead_limit_ms": 1.0,
+  "sla_compliance": true,
+  "benchmarks": {
+    "bare_span_lifecycle": {
+      "iterations": 50000,
+      "total_time_ms": 56.614,
+      "avg_overhead_us": 1.132,
+      "avg_overhead_ns": 1132.3,
+      "ops_per_sec": 883181.0
+    },
+    "annotated_span_sanitized": {
+      "iterations": 25000,
+      "total_time_ms": 308.674,
+      "avg_overhead_us": 12.347,
+      "avg_overhead_ns": 12347.0,
+      "ops_per_sec": 80992.0
+    },
+    "context_propagation": {
+      "iterations": 25000,
+      "total_time_ms": 173.972,
+      "avg_overhead_us": 6.959,
+      "avg_overhead_ns": 6958.9,
+      "ops_per_sec": 143702.0
+    },
+    "sampling_decisions": {
+      "iterations": 100000,
+      "total_time_ms": 74.565,
+      "avg_overhead_us": 0.746,
+      "avg_overhead_ns": 745.6,
+      "ops_per_sec": 1341114.0
+    },
+    "profiler_and_percentiles": {
+      "iterations": 10000,
+      "total_time_ms": 12.674,
+      "avg_overhead_us": 1.267,
+      "computed_percentiles": {
+        "count": 10000,
+        "min_ms": 1.0,
+        "max_ms": 100.0,
+        "mean_ms": 50.5,
+        "stddev_ms": 28.8675,
+        "p50_ms": 50.5,
+        "p90_ms": 90.1,
+        "p95_ms": 95.05,
+        "p99_ms": 99.01,
+        "p99_9_ms": 100.0
+      }
+    },
+    "asgi_middleware_request": {
+      "iterations": 10000,
+      "total_time_ms": 205.582,
+      "avg_overhead_us": 20.558,
+      "avg_overhead_ns": 20558.2,
+      "requests_per_sec": 48642.0
+    }
+  }
+}

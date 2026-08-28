@@ -1,0 +1,89 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "slo-burnrate-engine"
+version = "0.1.0"
+description = "Enterprise-grade SRE quantitative engine implementing Google SRE Multi-Window Multi-Burn-Rate alerting, rolling error budgets, and time-to-exhaustion forecasting."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "cibi-dev", email = "cibi-dev@users.noreply.github.com" }
+]
+keywords = [
+    "sre",
+    "slo",
+    "sli",
+    "burn-rate",
+    "multi-window",
+    "error-budget",
+    "monitoring",
+    "observability",
+    "openmetrics",
+    "prometheus",
+    "devsecops"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: System :: Monitoring",
+    "Topic :: System :: Systems Administration",
+    "Typing :: Typed",
+]
+dependencies = [
+    "numpy>=1.24,<3.0",
+    "pandas>=2.0,<3.0",
+    "pydantic>=2.0,<3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.0",
+    "bandit>=1.7",
+    "mypy>=1.8",
+    "cyclonedx-python-lib>=6.0",
+]
+
+[project.scripts]
+slo-engine = "slo.cli:main"
+slo = "slo.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-v --cov=slo --cov-report=term-missing --cov-fail-under=90"
+
+[tool.bandit]
+exclude_dirs = ["tests", "benchmarks", ".venv"]
+skips = ["B101"]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+warn_unused_ignores = false
+warn_return_any = false
+disallow_untyped_defs = false
+check_untyped_defs = true
+exclude = [
+    '^tests/',
+    '^benchmarks/',
+    '^examples/',
+    '^\.venv/',
+]

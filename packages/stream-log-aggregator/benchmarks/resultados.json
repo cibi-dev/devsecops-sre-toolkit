@@ -1,0 +1,16 @@
+{
+  "benchmark": "stream-log-aggregator-throughput",
+  "timestamp": "2026-08-28T00:22:25Z",
+  "target_events": 25000,
+  "events_processed": 25000,
+  "duration_seconds": 3.97,
+  "throughput_events_per_sec": 6297.27,
+  "latency_ms": {
+    "p50": 3719.013,
+    "p95": 3816.132,
+    "p99": 3822.644,
+    "avg": 3725.665
+  },
+  "sanitization_rate_pct": 100.0,
+  "target_met": true
+}

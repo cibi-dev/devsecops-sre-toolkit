@@ -1,0 +1,58 @@
+# Python cache & build
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+nosetests.xml
+coverage-reports/
+junit*.xml
+
+# Security & Secrets
+.env
+.env.*
+*.key
+*.pem
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+.cache/
+.gitleaks/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~

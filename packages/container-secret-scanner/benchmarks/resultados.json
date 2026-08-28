@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-08-27T19:27:03Z",
+  "system": {
+    "python_version": "3.14.7",
+    "os": "Linux",
+    "platform": "Linux-7.1.9-200.fc44.x86_64-x86_64-with-glibc2.43",
+    "cpu_count": 12
+  },
+  "dataset": {
+    "files_count": 150,
+    "total_bytes": 484411,
+    "total_mb": 0.462
+  },
+  "directory_scan": {
+    "workers": 4,
+    "iterations": 5,
+    "avg_duration_seconds": 0.8047,
+    "throughput_files_per_second": 186.4,
+    "throughput_mb_per_second": 0.57,
+    "findings_detected": 10
+  },
+  "tar_stream_scan": {
+    "iterations": 5,
+    "avg_duration_seconds": 0.91,
+    "throughput_files_per_second": 164.84,
+    "throughput_mb_per_second": 0.51,
+    "findings_detected": 10
+  }
+}

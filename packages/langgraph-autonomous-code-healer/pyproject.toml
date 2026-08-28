@@ -1,0 +1,88 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "langgraph-autonomous-code-healer"
+version = "0.1.0"
+description = "Autonomous cyclic multi-agent code healing system powered by LangGraph, AST transformations, and Bandit SAST verification"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    { name = "cibi-dev", email = "cibi-dev@users.noreply.github.com" }
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Topic :: Security",
+    "Topic :: Software Development :: Quality Assurance",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+    "pydantic>=2.0,<3.0",
+    "langgraph>=0.2.0,<2.0.0",
+    "langgraph-checkpoint-sqlite>=2.0.0,<4.0.0",
+    "bandit>=1.7.0,<2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0,<10.0",
+    "pytest-cov>=5.0,<8.0",
+    "pytest-asyncio>=0.23,<2.0",
+    "mypy>=1.10,<3.0",
+]
+
+[project.scripts]
+healer = "healer.cli:main"
+code-healer = "healer.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/healer"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+addopts = "-v --strict-markers"
+pythonpath = ["src"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.coverage.run]
+source = ["src/healer"]
+branch = true
+omit = ["tests/*", "benchmarks/*"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 90
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+warn_unused_ignores = false
+warn_return_any = false
+disallow_untyped_defs = false
+check_untyped_defs = true
+exclude = [
+    '^tests/',
+    '^benchmarks/',
+    '^examples/',
+    '^\.venv/',
+]
+[tool.bandit]
+exclude_dirs = ["tests", "benchmarks", ".venv"]
+skips = ["B101"]

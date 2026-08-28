@@ -1,0 +1,76 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Testing and Coverage
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+htmlcov/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Security & Sensitive Credentials (CWE-798)
+*.key
+*.pem
+*.crt
+*.pfx
+*.p12
+*.token
+*.secret
+.env*
+!example.env
+
+# Forbidden Serialization formats (CWE-502)
+*.pkl
+*.pickle
+*.joblib
+
+# Databases & Runtime State (CWE-89 / Invariant protection)
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite3
+.vscode/
+.idea/
+*.swp
+*.swo

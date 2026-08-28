@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-08-27 19:57:37Z",
+  "total_probes": 500,
+  "concurrency": 50,
+  "successful_probes": 500,
+  "failed_probes": 0,
+  "total_time_seconds": 0.2812,
+  "probes_per_second": 1778.15,
+  "latency_percentiles_ms": {
+    "p50": 21.82,
+    "p90": 26.955,
+    "p99": 31.926,
+    "min": 14.38,
+    "max": 36.783,
+    "mean": 21.466
+  },
+  "phase_breakdown_avg_ms": {
+    "dns_avg": 6.796,
+    "tcp_avg": 8.503,
+    "ttfb_avg": 4.495
+  }
+}

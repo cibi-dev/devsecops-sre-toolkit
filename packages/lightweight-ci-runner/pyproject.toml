@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lightweight-ci-runner"
+version = "1.0.0"
+description = "Enterprise-grade lightweight DAG-based CI/CD pipeline runner with process isolation and JUnit XML reporting."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "cibi-dev", email = "cibi-dev@users.noreply.github.com"}
+]
+dependencies = [
+    "pyyaml>=6.0,<7.0",
+    "pydantic>=2.0,<3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=4.1",
+    "bandit>=1.7",
+    "mypy>=1.8",
+]
+
+[project.scripts]
+lightweight-ci = "runner.cli:main"
+ci-runner = "runner.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-v --cov=runner --cov-report=term-missing --cov-report=xml --cov-fail-under=90"
+
+[tool.coverage.run]
+source = ["runner"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 90
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+]
+
+[tool.bandit]
+targets = ["src"]
+exclude_dirs = ["tests", "benchmarks"]
+skips = ["B101", "B404", "B603"]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+warn_unused_ignores = false
+warn_return_any = false
+disallow_untyped_defs = false
+check_untyped_defs = true
+exclude = [
+    '^tests/',
+    '^benchmarks/',
+    '^examples/',
+    '^\.venv/',
+]

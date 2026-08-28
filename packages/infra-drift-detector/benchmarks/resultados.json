@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-08-27T19:43:26Z",
+  "system": {
+    "os": "Linux",
+    "release": "7.1.9-200.fc44.x86_64",
+    "architecture": "x86_64",
+    "python_version": "3.14.7",
+    "cpu_count": 12
+  },
+  "benchmark_config": {
+    "iterations": 100,
+    "resources_per_manifest": 180,
+    "total_resources_evaluated": 18000
+  },
+  "live_host_audit": {
+    "resources_checked": 5,
+    "latency_ms": 11.184
+  },
+  "metrics": {
+    "total_time_seconds": 0.0824,
+    "audits_per_second": 1213.1,
+    "resources_per_second": 218357.37,
+    "latency_ms": {
+      "mean": 0.824,
+      "median_p50": 0.784,
+      "p95": 0.981,
+      "p99": 1.899,
+      "min": 0.718,
+      "max": 1.9,
+      "stdev": 0.187
+    }
+  }
+}

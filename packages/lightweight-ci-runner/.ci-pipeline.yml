@@ -1,0 +1,43 @@
+name: Sample Production CI/CD Pipeline
+concurrency: 4
+
+stages:
+  - lint
+  - build
+  - test
+  - deploy
+
+env:
+  ENVIRONMENT: production
+
+secrets:
+  - SECRET_API_KEY
+
+jobs:
+  lint-code:
+    stage: lint
+    script:
+      - echo "Checking code quality..."
+
+  compile-dist:
+    stage: build
+    needs: [lint-code]
+    script:
+      - echo "Building project packages..."
+
+  unit-tests:
+    stage: test
+    needs: [compile-dist]
+    matrix:
+      python: ["3.10", "3.11", "3.12"]
+    script:
+      - echo "Running test suite on Python ${{ matrix.python }}"
+    timeout: 30
+    retry: 1
+
+  deploy-prod:
+    stage: deploy
+    needs: [unit-tests]
+    script:
+      - echo "Deploying package to registry..."
+    when: on_success

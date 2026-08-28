@@ -1,0 +1,40 @@
+# Secretos & credenciales
+.env*
+*.pem
+*.key
+*.p12
+*.token
+*secret*
+*credential*
+*id_rsa*
+*.pfx
+*.crt
+
+# Bases de datos & artefactos locales
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+
+# Entornos virtuales, IDEs & caché
+.venv/
+venv/
+.cache/
+__pycache__/
+*.pyc
+*.pyo
+.mypy_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+.vscode/
+.zcode/
+
+# Artefactos de build & empaquetado
+dist/
+build/
+*.egg-info/
+
+# Reportes de escaneo sensibles
+gitleaks-report.json
+bandit-report.json

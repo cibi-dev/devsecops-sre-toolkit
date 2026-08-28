@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-08-28T02:01:33Z",
+  "system": {
+    "python_version": "3.14.7",
+    "os": "Linux",
+    "platform": "Linux-7.1.9-200.fc44.x86_64-x86_64-with-glibc2.43",
+    "cpu_count": 12
+  },
+  "dataset": {
+    "unique_snippets": 7,
+    "iterations_per_snippet": 20,
+    "total_benchmark_runs": 140
+  },
+  "ast_and_sast_analysis": {
+    "total_evaluations": 140,
+    "avg_latency_ms": 1.552,
+    "throughput_ops_per_second": 644.42
+  },
+  "patch_synthesis": {
+    "total_synthesized": 140,
+    "patches_generated": 180,
+    "avg_latency_ms": 1.322,
+    "throughput_ops_per_second": 756.37
+  },
+  "langgraph_e2e_healing": {
+    "total_executions": 140,
+    "successful_heals": 140,
+    "healing_success_rate_percent": 100.0,
+    "avg_e2e_latency_ms": 31.109,
+    "throughput_heals_per_second": 32.14
+  }
+}

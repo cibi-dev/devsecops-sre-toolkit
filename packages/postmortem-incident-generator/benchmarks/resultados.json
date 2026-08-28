@@ -1,0 +1,22 @@
+{
+  "sanitizer": {
+    "throughput_mb_per_sec": 3.12,
+    "total_mb_processed": 5.65,
+    "elapsed_seconds": 1.81
+  },
+  "evidence_collection": {
+    "latency_ms": 43.67
+  },
+  "timeline_metrics": {
+    "events_evaluated": 100,
+    "latency_ms": 0.639
+  },
+  "report_generation": {
+    "markdown_render_latency_ms": 1.227,
+    "reports_per_sec": 815.0
+  },
+  "storage_roundtrip": {
+    "save_and_retrieve_latency_ms": 3.933,
+    "ops_per_sec": 254.3
+  }
+}

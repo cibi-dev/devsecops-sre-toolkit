@@ -1,0 +1,49 @@
+name: DevSecOps CI Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate:
+    name: Test, SAST & Security Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install .[dev]
+
+      - name: Run Pytest with 90%+ Coverage Gate
+        run: |
+          pytest -v --cov=src/refactorer --cov-report=term-missing --cov-fail-under=90
+
+      - name: Run Bandit SAST Security Audit
+        run: |
+          bandit -r src/ -ll
+
+      - name: Run Gitleaks Secret Detector
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate CycloneDX SBOM
+        run: |
+          cyclonedx-py environment -o sbom.json
+
+      - name: Run Benchmarks
+        run: |
+          python benchmarks/run.py

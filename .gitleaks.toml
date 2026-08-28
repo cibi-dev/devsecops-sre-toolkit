@@ -1,0 +1,11 @@
+[allowlist]
+description = "Ignore build caches, bytecode, test fixtures, sanitization fixtures, and synthetic benchmarks"
+paths = [
+    '''(^|/)\.pytest_cache/''',
+    '''(^|/)__pycache__/''',
+    '''(^|/)\.mypy_cache/''',
+    '''(^|/)tests/''',
+    '''(^|/)packages/.*/tests/''',
+    '''(^|/)benchmarks/''',
+    '''(^|/)packages/.*/benchmarks/''',
+]

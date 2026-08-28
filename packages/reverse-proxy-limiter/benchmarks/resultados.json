@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-08-27T19:52:31Z",
+  "environment": {
+    "os": "Linux",
+    "python": "3.14.7",
+    "cpu": "x86_64"
+  },
+  "config": {
+    "total_requests": 10000,
+    "concurrency": 50,
+    "pipeline_features": [
+      "Round-Robin Load Balancing",
+      "Token Bucket Rate Limiting",
+      "3-State Circuit Breaker Protection",
+      "Canonical Security Headers Injection",
+      "OpenMetrics / Prometheus Telemetry Tracking",
+      "CWE-400 Concurrency & Byte Size Enforcement"
+    ]
+  },
+  "metrics": {
+    "successful_requests": 10000,
+    "failed_requests": 0,
+    "duration_seconds": 1.9621,
+    "throughput_rps": 5096.54,
+    "target_met": true,
+    "latency_ms": {
+      "min": 0.14,
+      "mean": 0.19,
+      "p50": 0.16,
+      "p90": 0.26,
+      "p95": 0.31,
+      "p99": 0.62,
+      "max": 3.15
+    }
+  }
+}

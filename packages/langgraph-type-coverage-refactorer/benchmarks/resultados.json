@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-08-28T02:03:12Z",
+  "environment": {
+    "python_version": "3.10+",
+    "platform": "linux"
+  },
+  "metrics": {
+    "ast_inspection_files_per_sec": 3788.93,
+    "ast_inspection_ms_per_file": 0.264,
+    "type_annotation_files_per_sec": 1496.01,
+    "type_annotation_ms_per_file": 0.668,
+    "test_generation_tests_per_sec": 16560.39,
+    "test_generation_ms_per_module": 0.362,
+    "e2e_convergence_latency_ms": 1129.05,
+    "e2e_achieved_coverage_pct": 100.0,
+    "e2e_success": true
+  }
+}

@@ -1,0 +1,83 @@
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel>=0.40.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "encrypted-backup-orchestrator"
+version = "0.1.0"
+description = "Enterprise DR Incremental Backup Orchestrator with Block Deduplication, Zstandard Compression, AES-256-GCM Encryption, GFS Retention & Automated Sandbox Verification"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "cibi-dev", email = "cibi-dev@users.noreply.github.com" }
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "Intended Audience :: Information Technology",
+    "Topic :: System :: Archiving :: Backup",
+    "Topic :: Security :: Cryptography",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+    "pydantic>=2.0.0,<3.0.0",
+    "cryptography>=42.0.0,<50.0.0",
+    "zstandard>=0.22.0,<1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0,<10.0.0",
+    "pytest-cov>=4.0.0,<8.0.0",
+    "bandit>=1.7.0,<2.0.0",
+    "mypy>=1.0.0,<2.0.0",
+    "pip-audit>=2.5.0,<3.0.0",
+]
+
+[project.scripts]
+backup-orchestrator = "backup.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-v --cov=backup --cov-report=term-missing --cov-fail-under=90"
+
+[tool.coverage.run]
+source = ["backup"]
+omit = ["tests/*", "benchmarks/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+warn_unused_ignores = false
+warn_return_any = false
+disallow_untyped_defs = false
+check_untyped_defs = true
+exclude = [
+    '^tests/',
+    '^benchmarks/',
+    '^examples/',
+    '^\.venv/',
+]
+[tool.bandit]
+exclude_dirs = ["tests", "benchmarks", ".venv"]
+skips = ["B101"]

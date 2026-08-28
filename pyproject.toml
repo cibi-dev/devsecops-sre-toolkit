@@ -1,0 +1,106 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "devsecops-sre-toolkit"
+version = "1.0.0"
+description = "Enterprise DevSecOps, SRE & Autonomous Resilience Toolkit (17 Production Modules)"
+readme = "README.md"
+authors = [{ name = "cibi-dev", email = "cibi@users.noreply.github.com" }]
+license = { text = "MIT" }
+requires-python = ">=3.11"
+keywords = [
+    "devsecops", "sre", "chaos-engineering", "observability", "cis-benchmarks",
+    "secret-scanner", "drift-detection", "slo", "burnrate", "self-healing",
+    "opentelemetry", "rate-limiting", "zero-downtime", "blameless-postmortem"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Security",
+    "Topic :: System :: Monitoring",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+    "pydantic>=2.0,<3.0",
+    "pyyaml>=6.0,<7.0",
+    "httpx>=0.27.0,<1.0.0",
+    "starlette>=0.38.0,<2.0.0",
+    "uvicorn>=0.30.0,<1.0.0",
+    "cryptography>=42.0.0,<50.0.0",
+    "zstandard>=0.22.0,<1.0.0",
+    "psutil>=5.9,<7.0",
+    "numpy>=1.24,<3.0",
+    "pandas>=2.0,<3.0",
+    "jinja2>=3.1.0,<4.0.0",
+    "langgraph>=0.2.0,<2.0.0",
+    "langgraph-checkpoint>=4.1,<5",
+    "langgraph-checkpoint-sqlite>=2.0.0,<4.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
+    "bandit>=1.7.5",
+    "mypy>=1.10.0",
+]
+
+[project.scripts]
+devsecops = "cli:main"
+sre-toolkit = "cli:main"
+
+[tool.setuptools]
+py-modules = ["cli"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [
+    ".",
+    "packages/blue-green-deployer/src",
+    "packages/chaos-fault-injector/src",
+    "packages/container-secret-scanner/src",
+    "packages/distributed-tracing-profiler/src",
+    "packages/encrypted-backup-orchestrator/src",
+    "packages/infra-drift-detector/src",
+    "packages/langgraph-autonomous-code-healer/src",
+    "packages/langgraph-type-coverage-refactorer/src",
+    "packages/lightweight-ci-runner/src",
+    "packages/linux-cis-hardener/src",
+    "packages/linux-sre-watchdog/src",
+    "packages/postmortem-incident-generator/src",
+    "packages/prometheus-metrics-exporter/src",
+    "packages/reverse-proxy-limiter/src",
+    "packages/slo-burnrate-engine/src",
+    "packages/stream-log-aggregator/src",
+    "packages/synthetic-blackbox-prober/src",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+]
+
+[tool.bandit]
+exclude_dirs = ["tests", "venv", ".venv", ".pytest_cache", ".mypy_cache"]
+skips = ["B101"]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+warn_unused_ignores = false
+warn_return_any = false
+disallow_untyped_defs = false
+check_untyped_defs = true
+exclude = [
+    '^tests/',
+    '^benchmarks/',
+    '^packages/.*/tests/',
+    '^packages/.*/benchmarks/',
+    '^packages/.*/examples/',
+    '^\.venv/',
+]

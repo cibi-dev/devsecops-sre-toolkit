@@ -1,0 +1,63 @@
+{
+  "timestamp": "2026-08-27T19:41:58.436158+00:00",
+  "environment": {
+    "python_version": "3.14.7",
+    "os": "Linux",
+    "platform": "Linux-7.1.9-200.fc44.x86_64-x86_64-with-glibc2.43",
+    "cpu_count": 12
+  },
+  "dag_resolution_benchmarks": [
+    {
+      "num_jobs": 10,
+      "avg_parse_ms": 9.015,
+      "avg_dag_validation_ms": 0.128,
+      "avg_topo_sort_ms": 0.078,
+      "avg_layering_ms": 0.042,
+      "total_dag_resolution_ms": 9.263
+    },
+    {
+      "num_jobs": 50,
+      "avg_parse_ms": 31.52,
+      "avg_dag_validation_ms": 0.211,
+      "avg_topo_sort_ms": 0.146,
+      "avg_layering_ms": 0.116,
+      "total_dag_resolution_ms": 31.993
+    },
+    {
+      "num_jobs": 100,
+      "avg_parse_ms": 52.107,
+      "avg_dag_validation_ms": 0.404,
+      "avg_topo_sort_ms": 0.243,
+      "avg_layering_ms": 0.21,
+      "total_dag_resolution_ms": 52.964
+    },
+    {
+      "num_jobs": 250,
+      "avg_parse_ms": 78.563,
+      "avg_dag_validation_ms": 0.618,
+      "avg_topo_sort_ms": 0.391,
+      "avg_layering_ms": 0.34,
+      "total_dag_resolution_ms": 79.912
+    },
+    {
+      "num_jobs": 500,
+      "avg_parse_ms": 145.944,
+      "avg_dag_validation_ms": 1.093,
+      "avg_topo_sort_ms": 0.704,
+      "avg_layering_ms": 0.617,
+      "total_dag_resolution_ms": 148.358
+    }
+  ],
+  "orchestration_overhead": {
+    "num_jobs": 100,
+    "total_dry_run_ms": 8.814,
+    "overhead_per_job_us": 88.14,
+    "jobs_per_second_throughput": 11345.0
+  },
+  "summary": {
+    "scale_500_jobs_dag_resolution_ms": 148.358,
+    "overhead_per_job_us": 88.14,
+    "throughput_jobs_per_sec": 11345.0,
+    "status": "PASSED_ENTERPRISE_GRADE"
+  }
+}

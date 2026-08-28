@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Sample Production CI/CD Pipeline" tests="6" failures="0" errors="0" skipped="0" time="0.019">
+  <testsuite name="build" tests="1" failures="0" errors="0" skipped="0" time="0.003">
+    <testcase classname="pipeline.build" name="compile-dist" time="0.003">
+      <system-out>Building project packages...
+</system-out>
+      </testcase>
+    </testsuite>
+  <testsuite name="deploy" tests="1" failures="0" errors="0" skipped="0" time="0.003">
+    <testcase classname="pipeline.deploy" name="deploy-prod" time="0.003">
+      <system-out>Deploying package to registry...
+</system-out>
+      </testcase>
+    </testsuite>
+  <testsuite name="lint" tests="1" failures="0" errors="0" skipped="0" time="0.003">
+    <testcase classname="pipeline.lint" name="lint-code" time="0.003">
+      <system-out>Checking code quality...
+</system-out>
+      </testcase>
+    </testsuite>
+  <testsuite name="test" tests="3" failures="0" errors="0" skipped="0" time="0.021">
+    <testcase classname="pipeline.test" name="unit-tests[python=3.10]" time="0.009">
+      <system-out>Running test suite on Python 3.10
+</system-out>
+      </testcase>
+    <testcase classname="pipeline.test" name="unit-tests[python=3.11]" time="0.007">
+      <system-out>Running test suite on Python 3.11
+</system-out>
+      </testcase>
+    <testcase classname="pipeline.test" name="unit-tests[python=3.12]" time="0.005">
+      <system-out>Running test suite on Python 3.12
+</system-out>
+      </testcase>
+    </testsuite>
+  </testsuites>

@@ -1,0 +1,46 @@
+{
+  "timestamp": 1787860629.2869315,
+  "date_utc": "2026-08-27T19:57:09Z",
+  "collector_benchmark": {
+    "mean_ms": 0.7572,
+    "min_ms": 0.3246,
+    "max_ms": 2.6147,
+    "p50_ms": 0.861,
+    "p95_ms": 1.355,
+    "p99_ms": 2.0965,
+    "iterations": 1000,
+    "samples_per_scrape": 216
+  },
+  "formatter_benchmark": {
+    "mean_ms": 0.5761,
+    "min_ms": 0.5059,
+    "max_ms": 1.7399,
+    "p50_ms": 0.5227,
+    "p95_ms": 1.0031,
+    "p99_ms": 1.4251,
+    "iterations": 1000,
+    "output_size_bytes": 14852
+  },
+  "alert_evaluator_benchmark": {
+    "mean_ms": 0.0095,
+    "min_ms": 0.0089,
+    "max_ms": 0.0378,
+    "p50_ms": 0.0093,
+    "p95_ms": 0.0103,
+    "p99_ms": 0.0168,
+    "iterations": 1000,
+    "rules_evaluated_count": 20
+  },
+  "http_server_throughput": {
+    "mean_ms": 63.3857,
+    "min_ms": 13.6461,
+    "max_ms": 1112.1147,
+    "p50_ms": 57.5198,
+    "p95_ms": 84.4153,
+    "p99_ms": 102.4728,
+    "total_requests": 381,
+    "duration_seconds": 3.0,
+    "concurrency": 8,
+    "requests_per_second": 127.0
+  }
+}

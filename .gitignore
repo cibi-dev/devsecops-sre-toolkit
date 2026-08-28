@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Seguridad
+*.key
+*.pem
+*.env
+.env*
+!.env.example
+sbom.json
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo

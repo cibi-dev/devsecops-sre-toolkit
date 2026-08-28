@@ -1,0 +1,76 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "postmortem-incident-generator"
+version = "0.1.0"
+description = "Enterprise-grade Blameless Post-Mortem automation CLI with evidence collection, minute-by-minute timeline reconstruction, automated MTTA/MTTR/TTD calculation, and auditable SRE Markdown generation"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    { name = "cibi-dev", email = "cibi-dev@users.noreply.github.com" }
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "Topic :: System :: Systems Administration",
+    "Topic :: System :: Logging",
+    "Topic :: Security",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+    "pydantic>=2.0.0,<3.0.0",
+    "jinja2>=3.1.0,<4.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0,<10.0.0",
+    "pytest-cov>=5.0.0,<8.0.0",
+    "bandit>=1.7.0,<2.0.0",
+    "mypy>=1.10.0,<3.0.0",
+]
+
+[project.scripts]
+postmortem-incident-generator = "postmortem.cli:main"
+postmortem = "postmortem.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/postmortem"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+addopts = "-v --strict-markers"
+pythonpath = ["src"]
+
+[tool.coverage.run]
+source = ["src/postmortem"]
+branch = true
+omit = ["tests/*", "benchmarks/*"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 90
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+warn_unused_ignores = false
+warn_return_any = false
+disallow_untyped_defs = false
+check_untyped_defs = true
+exclude = [
+    '^tests/',
+    '^benchmarks/',
+    '^examples/',
+    '^\.venv/',
+]

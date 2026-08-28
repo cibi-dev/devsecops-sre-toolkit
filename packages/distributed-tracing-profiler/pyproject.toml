@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "distributed-tracing-profiler"
+version = "0.1.0"
+description = "Enterprise-grade pure-Python distributed tracing SDK, W3C TraceContext propagator, and latency profiler"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "cibi-dev", email = "cibi-dev@users.noreply.github.com" }
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: System :: Monitoring",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+dependencies = [
+    "pydantic>=2.0,<3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "pytest-cov>=5.0",
+    "bandit>=1.7",
+    "mypy>=1.8",
+    "cyclonedx-python-lib>=6.0",
+]
+
+[project.scripts]
+distributed-tracing-profiler = "tracing.cli:main"
+tracing-profiler = "tracing.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+addopts = "-v --cov=tracing --cov-report=term-missing --cov-fail-under=90"
+
+[tool.bandit]
+exclude_dirs = ["tests", "benchmarks", ".venv"]
+skips = ["B101"]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+warn_unused_ignores = false
+warn_return_any = false
+disallow_untyped_defs = false
+check_untyped_defs = true
+exclude = [
+    '^tests/',
+    '^benchmarks/',
+    '^examples/',
+    '^\.venv/',
+]

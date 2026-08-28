@@ -1,0 +1,49 @@
+{
+  "timestamp": 1787860664.151775,
+  "timestamp_iso": "2026-08-27T19:57:44Z",
+  "system": {
+    "os": "Linux",
+    "release": "7.1.9-200.fc44.x86_64",
+    "machine": "x86_64",
+    "python_version": "3.14.7",
+    "cpu_count": 12
+  },
+  "benchmarks": {
+    "atomic_symlink_switch": {
+      "iterations": 1000,
+      "mean_ms": 0.1193,
+      "median_ms": 0.0808,
+      "p95_ms": 0.2806,
+      "p99_ms": 0.4003,
+      "min_ms": 0.0704,
+      "max_ms": 1.9464,
+      "ops_per_second": 8383.4
+    },
+    "concurrency_lock": {
+      "iterations": 500,
+      "mean_ms": 0.0143,
+      "median_ms": 0.0119,
+      "p95_ms": 0.0211,
+      "min_ms": 0.0112,
+      "max_ms": 0.1117
+    },
+    "auto_rollback": {
+      "iterations": 200,
+      "mean_ms": 10.1361,
+      "median_ms": 8.9213,
+      "p95_ms": 19.0917,
+      "p99_ms": 27.9448,
+      "max_ms": 51.0261,
+      "sla_limit_seconds": 30.0,
+      "sla_compliant": true
+    },
+    "full_deployment_cycle": {
+      "iterations": 100,
+      "mean_ms": 21.6669,
+      "median_ms": 19.8346,
+      "p95_ms": 32.9481,
+      "min_ms": 15.3187,
+      "max_ms": 42.4994
+    }
+  }
+}

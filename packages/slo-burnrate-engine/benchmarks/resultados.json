@@ -1,0 +1,58 @@
+{
+  "timestamp": "2026-08-28T00:12:20.444556+00:00",
+  "platform": {
+    "python_version": "3.14.7",
+    "system": "Linux",
+    "processor": "x86_64"
+  },
+  "scalar_sli_benchmark": {
+    "iterations": 100000,
+    "duration_seconds": 0.7048,
+    "ops_per_second": 141880.11,
+    "avg_latency_us": 7.0482
+  },
+  "vectorized_timeseries_benchmark": [
+    {
+      "rows_count": 10000,
+      "total_requests_evaluated": 5462380,
+      "duration_seconds": 0.0091,
+      "throughput_events_per_sec": 599971772.26,
+      "peak_memory_mb": 0.26,
+      "sli_ratio": 0.999002,
+      "budget_consumed_percent": 99.85
+    },
+    {
+      "rows_count": 100000,
+      "total_requests_evaluated": 54937336,
+      "duration_seconds": 0.0082,
+      "throughput_events_per_sec": 6723788097.04,
+      "peak_memory_mb": 2.3,
+      "sli_ratio": 0.998999,
+      "budget_consumed_percent": 100.07
+    },
+    {
+      "rows_count": 1000000,
+      "total_requests_evaluated": 549215974,
+      "duration_seconds": 0.0354,
+      "throughput_events_per_sec": 15520963248.68,
+      "peak_memory_mb": 22.89,
+      "sli_ratio": 0.998999,
+      "budget_consumed_percent": 100.05
+    },
+    {
+      "rows_count": 5000000,
+      "total_requests_evaluated": 2747576733,
+      "duration_seconds": 0.9097,
+      "throughput_events_per_sec": 3020225496.61,
+      "peak_memory_mb": 114.45,
+      "sli_ratio": 0.999,
+      "budget_consumed_percent": 100.03
+    }
+  ],
+  "multi_window_alert_benchmark": {
+    "iterations": 25000,
+    "duration_seconds": 2.462,
+    "evaluations_per_second": 10154.45,
+    "avg_latency_us": 98.479
+  }
+}

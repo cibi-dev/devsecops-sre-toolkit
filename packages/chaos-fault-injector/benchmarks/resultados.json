@@ -1,0 +1,56 @@
+{
+  "network_fault_injection_activation_ms": {
+    "avg_ms": 0.0171,
+    "min_ms": 0.0123,
+    "max_ms": 0.1452,
+    "p50_ms": 0.01,
+    "p95_ms": 0.02,
+    "p99_ms": 0.04,
+    "iterations": 100
+  },
+  "network_fault_rollback_ms": {
+    "avg_ms": 0.0011,
+    "min_ms": 0.0008,
+    "max_ms": 0.0063,
+    "p50_ms": 0.0,
+    "p95_ms": 0.0,
+    "p99_ms": 0.0,
+    "iterations": 100
+  },
+  "cpu_stress_lifecycle_ms": {
+    "avg_ms": 0.0051,
+    "min_ms": 0.0022,
+    "max_ms": 0.0919,
+    "p50_ms": 0.0,
+    "p95_ms": 0.01,
+    "p99_ms": 0.06,
+    "iterations": 50
+  },
+  "dead_man_switch_overhead_ms": {
+    "avg_ms": 1.014,
+    "min_ms": 0.3918,
+    "max_ms": 2.2019,
+    "p50_ms": 0.99,
+    "p95_ms": 1.55,
+    "p99_ms": 1.97,
+    "iterations": 50
+  },
+  "atomic_rollback_10_steps_ms": {
+    "avg_ms": 0.1136,
+    "min_ms": 0.0232,
+    "max_ms": 7.768,
+    "p50_ms": 0.03,
+    "p95_ms": 0.07,
+    "p99_ms": 0.21,
+    "iterations": 100
+  },
+  "resilience_report_generation_ms": {
+    "avg_ms": 0.1055,
+    "min_ms": 0.0886,
+    "max_ms": 0.3972,
+    "p50_ms": 0.1,
+    "p95_ms": 0.13,
+    "p99_ms": 0.29,
+    "iterations": 50
+  }
+}

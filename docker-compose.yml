@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  sre-toolkit:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cibi-dev/devsecops-sre-toolkit:latest
+    container_name: devsecops-sre-toolkit
+    restart: "no"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./data:/app/data:ro
+      - ./output:/app/output:rw
+    command: ["demo"]

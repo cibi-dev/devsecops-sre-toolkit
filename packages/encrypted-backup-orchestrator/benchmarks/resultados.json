@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-08-27T20:00:00Z",
+  "dataset": {
+    "total_files": 35,
+    "total_bytes": 8322880,
+    "total_mb": 7.94,
+    "unique_chunks": 28,
+    "deduplication_ratio": 4.58
+  },
+  "metrics": {
+    "scan_dedup_throughput_mb_s": 501.65,
+    "compression_throughput_mb_s": 617.54,
+    "compression_ratio": 1.38,
+    "encryption_throughput_mb_s": 275.47,
+    "sandbox_restore_throughput_mb_s": 164.23,
+    "e2e_total_duration_s": 0.0732,
+    "verification_pass_rate_pct": 100.0
+  },
+  "status": "PASS"
+}
